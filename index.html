@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Long Lý Bạch</title>
+</head>
+<body style="color: white;">
+	<div style="width: 500px;height: 200px;background-image: url(https://gamek.mediacdn.vn/thumb_w/640/133514250583805952/2022/6/4/photo-1-1654333508977448940123.jpg);top: 100px;left: 100px">
+		<div style="width: 100%;height: 50px;background: black;text-align: center;">
+			<h1>Tính thuế lương</h1>
+		</div>
+		<div style="width: 100%;height: 60px;margin: 0px;">
+			<div style="width: 50%;height: 60px;float: left;text-align: left;text-indent: 50px;">
+				Nhập tiền
+				<input type="number" placeholder="Triệu" id="tien" style="border-radius: 5px;background: black;color: white;width: 200px;">
+			</div>
+			<div style="width: 50%;height: 60px;float: left;">
+				<button type="button" onclick="caculate()" style="margin: 10px;width: 120px;height: 40px;background: black;color: white;border-radius: 5px;">Tính thuế thu nhập</button>
+			</div>
+		</div>
+		<div style="text-align: center;"><h2 id="kq">Kết quả</h2></div>
+	</div>
+	<script type="text/javascript">
+		function caculate(){
+		let luongdau = document.getElementById('tien').value;
+		let thue = 0;
+		let luong = 0;
+		if (luongdau < 7) {
+			thue = luongdau * 10/ 100;
+			luong = luongdau - thue;
+			}
+		else if (luongdau > 7 && luongdau < 15) {
+				thue = luongdau * 0.2;
+				luong = luongdau - thue;
+			}
+		else if (luongdau >= 15) {
+			thue= luongdau * 0.3;
+			luong= luongdau - thue
+		}
+		if (luongdau > 0) {
+			document.getElementById('kq').innerHTML = `Lương ban đầu ${luongdau} triệu │ Thuế ${thue} triệu │ Lương ${luong} triệu`
+		}
+		else{
+			document.getElementById('kq').innerHTML = `Nhập lại`
+		}
+	}
+	</script>
+</body>
+</html>
